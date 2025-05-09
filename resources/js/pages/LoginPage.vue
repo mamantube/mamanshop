@@ -10,7 +10,7 @@ const router = useRouter();
 const isLoading = ref(false)
 
 const schema = yup.object({
-    email: yup.string().email("Format email salah").required("Email wajib diidi"),
+    email: yup.string().email("Format email salah").required("Email tidak boleh kosong"),
     password: yup.string().required("Password wajib diisi")
 })
 
@@ -103,7 +103,7 @@ const handleLogin = handleSubmit ( async (values) => {
                         <router-link to="/" class="btn btn-primary mt-4 w-100">
                             Kembali ke beranda
                         </router-link>
-                        <div class="d-flex justify-content-center">
+                        <div class="d-flex justify-content-center mt-3">
                             <p>Belum mempunyai akun? Silahkan daftar 
                                 <router-link to="/auth/regist">Di sini</router-link>
                             </p>

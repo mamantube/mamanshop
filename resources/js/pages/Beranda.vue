@@ -118,7 +118,7 @@ onMounted(products);
               <p class="card-text">
                 {{ formatIDR(product.price) }}
               </p>
-              <a href="#" class="btn btn-primary">Detail Produk</a>
+              <a href="/auth/login" class="btn btn-primary">Detail Produk</a>
             </div>
           </div>
         </div>

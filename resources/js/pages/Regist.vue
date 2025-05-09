@@ -177,7 +177,7 @@ const handleRegist = handleSubmit( async (formData) => {
                             </button>
                         </router-link>
                     </form>
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center mt-3">
                         <p>
                             Sudah punya akun? Silahkan Masuk
                             <router-link to="/auth/login">Di sini</router-link>
