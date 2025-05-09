@@ -52,9 +52,11 @@ class UserController extends Controller
     public function user($id)
     {
         try{
-            $user = User::findOrfail($id);
+            $user = User::with(["cartItems.product"])->findOrfail($id);
     
-            return response()->json(["Data" => $user]);
+            return response()->json(["Data" => ["user" => $user, "cart" => ["items" => $user->cartItems, "total_price" => $user->cartitems->sum( function ($item) {
+                return $item->quantity * $item->product->price;
+            })]]]);
 
         } catch (Exception $e) {
             return response()->json(["message" => $e->getMessage()]);
