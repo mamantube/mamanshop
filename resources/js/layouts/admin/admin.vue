@@ -7,10 +7,13 @@
     const router = useRouter();
 
     const token = localStorage.getItem("token");
+
+    const token = localStorage.getItem("token");
     
     onBeforeMount(() => {
         if (!token) return router.push("/");
     })
+
 
 
     const onLogout = () => {
