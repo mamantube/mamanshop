@@ -18,6 +18,7 @@ import ProductsCustomer from "./pages/customer/ProductsCustomer.vue";
 import DetailProductCustomer from "./pages/customer/DetailProductCustomer.vue";
 import CustomerList from "./pages/admin/CustomerList.vue";
 import ForbiddenAccess from "./pages/ForbiddenAccess.vue";
+import CartList from "./pages/customer/CartList.vue";
 
 
 const routes = [
@@ -52,6 +53,7 @@ const routes = [
                 { path: "beranda", component: BerandaCostumer},
                 { path: "products", component: ProductsCustomer},
                 { path: "products/:id", component: DetailProductCustomer},
+                { path: "cart-list", component: CartList},
             ]
     },
     {
