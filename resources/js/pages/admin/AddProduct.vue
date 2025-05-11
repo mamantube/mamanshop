@@ -80,7 +80,7 @@ const addProduct = handleSubmit(async (formData) => {
         await api.post("products/add", submitForm, {
             headers: {
                 "Content-Type": "multipart/form-data",
-                Authorization: `Bearer ${token}`,
+                "Authorization" : `Bearer ${token}`,
             },
         });
 
