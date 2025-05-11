@@ -49,15 +49,15 @@ const profile = () => {
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/">Home</router-link>
+                        <router-link class="nav-link fw-semibold" to="/">Beranda</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/customer/products"
-                            >Product</router-link
+                        <router-link class="nav-link fw-semibold" to="/customer/products"
+                            >Produk</router-link
                         >
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/customer/contact-us"
+                        <router-link class="nav-link fw-semibold" to="/customer/contact-us"
                             >Hubungi Kami</router-link
                         >
                     </li>
