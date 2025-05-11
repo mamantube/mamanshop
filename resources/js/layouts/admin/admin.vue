@@ -7,8 +7,12 @@
     const router = useRouter();
 
     const token = localStorage.getItem("token");
+    const role = localStorage.getItem("role")
 
-    const token = localStorage.getItem("token");
+    if (!token && role !== "admin") {
+        router.push("/forbidden")
+    }
+
     
     onBeforeMount(() => {
         if (!token) return router.push("/");
