@@ -28,7 +28,8 @@ const handleLogin = handleSubmit ( async (values) => {
         await api.post("login", values)
         .then((response) => {
             let {token} = response.data;
-            let {role, user_name} = response.data.user;
+            let {role, user_name, id} = response.data.user;
+            localStorage.setItem("user_id", id);
             localStorage.setItem("role", role);
             localStorage.setItem("user_name", user_name)
             localStorage.setItem("token", token);
