@@ -21,13 +21,6 @@ const profile = () => {
     })
 }
 
-const transaction = () => {
-    Swal.fire({
-        title: "Fitur ini belum tersedia",
-        icon: "info"
-    })
-}
-
 
 </script>
 
@@ -89,7 +82,9 @@ const transaction = () => {
                                     <a @click="profile" class="dropdown-item" href="#">Profil</a>
                                 </li>
                                 <li>
-                                    <a @click="transaction" class="dropdown-item" href="#">Pembelian</a>
+                                    <router-link to="/customer/cart-list" class=" dropdown-item">
+                                        Keranjang Saya
+                                    </router-link>
                                 </li>
                                 <li>
                                     <a class="dropdown-item" href="#" @click="handleLogout
