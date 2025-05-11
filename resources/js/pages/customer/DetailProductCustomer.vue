@@ -46,7 +46,9 @@ const addToCart = async () => {
         })
         Swal.fire("Produk ditambahkan ke dalam keranjang", "", "success")
     } catch (error) {
-        Swal.fire("Produk gagal ditambahkan", "", "error")
+        console.error("Error menambahkan ke keranjang:", error.response);
+        const errorMsg = error.response?.data?.message || "Produk gagal ditambahkan";
+        Swal.fire("Error", errorMsg, "error");
     }    
 }
 </script>
