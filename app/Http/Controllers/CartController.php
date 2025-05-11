@@ -66,22 +66,21 @@ class CartController extends Controller
 
 
 
-                $cartItem = CartItem::updateOrCreate(
+                $cartItem = CartItem::firstOrNew(
                     [
                         'user_id' => $user->id,
                         'product_id' => $product->id
                     ],
-                    [
-                        'quantity' => DB::raw("quantity + {$quantity}")
-                    ]
                 );
+                $cartItem->quantity = ($cartItem->quantity ?? 1) + $quantity;
+                $cartItem->save();
 
                 $product->decrement("stock", $quantity);
 
                 return response()->json(["message" => "Produk berhasil ditambahkan ke cart", "data" => $cartItem-> load("product")], 200);
             });
         } catch (Exception $e) {
-            return response()->json(["message" => "gagal menambahkan produk", $e->getMessage()], 500);
+            return response()->json(["message" => "gagal menambahkan produk", "error" => $e->getMessage()], 500);
         }
 
     }
