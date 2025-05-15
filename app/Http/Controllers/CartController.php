@@ -92,4 +92,18 @@ class CartController extends Controller
 
         return response()->json(["message" => "Produk dihapus dari cart"], 200);
     }
+
+    public function payment($id)
+    {
+        try {
+            $cartItem = CartItem::where("id", $id)->first();
+    
+            $cartItem->payment = "success";
+            $cartItem->save();
+
+            return response()->json(["message" => "Pembayaran berhasil", "data" => $cartItem], 200);
+        } catch (Exception $e) {
+            return response()->json(["message" => "pembayaran gagal", "error" => $e->getMessage()], 500);
+        }
+    }
 }
