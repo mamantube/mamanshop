@@ -54,9 +54,7 @@ class UserController extends Controller
         try{
             $user = User::with(["cartItems.product"])->findOrfail($id);
     
-            return response()->json(["data" => ["user" => $user, "cart" => ["items" => $user->cartItems, "total_price" => $user->cartitems->sum( function ($item) {
-                return $item->quantity * $item->product->price;
-            })]]]);
+            return response()->json(["data" => $user], 200);
 
         } catch (Exception $e) {
             return response()->json(["message" => $e->getMessage()]);
