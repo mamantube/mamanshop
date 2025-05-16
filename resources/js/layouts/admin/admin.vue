@@ -1,31 +1,26 @@
 <script setup lang="ts">
-    import { RouterLink, RouterView } from 'vue-router';
-    import { useRouter } from 'vue-router';
-    import { onBeforeMount } from 'vue';
-    import Footer from '../../components/Footer.vue';
+import { RouterLink, RouterView } from "vue-router";
+import { useRouter } from "vue-router";
+import { onBeforeMount } from "vue";
+import Footer from "../../components/Footer.vue";
 
-    const router = useRouter();
+const router = useRouter();
 
-    const token = localStorage.getItem("token");
-    const role = localStorage.getItem("role")
+const token = localStorage.getItem("token");
+const role = localStorage.getItem("role");
 
-    if (!token && role !== "admin") {
-        router.push("/forbidden")
-    }
+if (!token && role !== "admin") {
+    router.push("/forbidden");
+}
 
-    
-    onBeforeMount(() => {
-        if (!token) return router.push("/");
-    })
+onBeforeMount(() => {
+    if (!token) return router.push("/");
+});
 
-
-
-    const onLogout = () => {
-        localStorage.clear()
-        router.push("/")
-    }
-    
-
+const onLogout = () => {
+    localStorage.clear();
+    router.push("/");
+};
 </script>
 
 <template>
@@ -53,21 +48,30 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/admin/beranda">Data Penjualan</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link class="nav-link" to="/admin/products"
-                            >Product</router-link
+                        <router-link
+                            class="nav-link fw-semibold"
+                            to="/admin/beranda"
+                            >Data Penjualan</router-link
                         >
                     </li>
-                    <li class="nav-item" >
-                        <router-link class=" nav-link" to="/admin/customer-list">
-                            Customer
+                    <li class="nav-item">
+                        <router-link class="nav-link fw-semibold" to="/admin/products">
+                            Produk
+                        </router-link
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link fw-semibold" to="/admin/customer-list">
+                            Data pengguna
                         </router-link>
                     </li>
                 </ul>
                 <div class="d-flex">
-                    <button @click="onLogout" type="button" class="btn btn-primary">
+                    <button
+                        @click="onLogout"
+                        type="button"
+                        class="btn btn-primary"
+                    >
                         Logout
                     </button>
                 </div>
