@@ -44,7 +44,8 @@ const addToCart = async () => {
                 "Authorization": `Bearer ${token}`,
             }
         })
-        Swal.fire("Produk ditambahkan ke dalam keranjang", "", "success")
+        Swal.fire("Produk ditambahkan ke dalam keranjang", "", "success");
+        router.push("/customer/cart-list")
     } catch (error) {
         console.error("Error menambahkan ke keranjang:", error.response);
         const errorMsg = error.response?.data?.message || "Produk gagal ditambahkan";
@@ -66,26 +67,49 @@ const addToCart = async () => {
         </div>
 
         <div v-else>
-            <div class="card">
-                <img
-                    :src="product.image"
-                    class="card-img-top"
-                    alt="Product Image"
-                />
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.product_name }}</h5>
-                    <p class="card-text">
-                        Harga: {{ formatIDR(product.price) }}
+            <div class="row vh-100">
+                <div class="col">
+                    <img
+                        :src="product.image"
+                        alt="Product Image"
+                        style="width: 20rem; max-width: 762px;"
+                    />
+                </div>
+                <div class="col">
+                    <h6>
+                        Nama Produk:
+                    </h6>
+                    <p>
+                        {{ product.product_name }}
                     </p>
-                    <p class="card-text">Stok: {{ product.stock }}</p>
-                    <p class="card-text">
-                        Deskripsi: {{ product.description }}
+                    <h6>
+                        Harga:
+                    </h6>
+                    <p>
+                        {{ formatIDR(product.price) }}
                     </p>
-                    <div class=" d-flex gap-2">
-                        <input type="number" v-model="quantity" min="1" :max="product.stock" class="form-control w-25" />                        
-                        <button @click="addToCart" class="btn px-5 py-2" style="background-color: #FF4433;/">
-                            <i class="bi bi-cart-plus-fill" style="color: white;"></i>
-                        </button>
+                    <h6>
+                        Stok:</h6>
+                    <p>
+                        {{ product.stock }} Pcs
+                    </p>
+                    <h6>
+                        Deskripsi:
+                    </h6>
+                    <p>
+                        {{ product.description }}
+                    </p>
+
+                    <div class=" row">
+                        <div class="col col-md-4">
+                            <input type="number" v-model="quantity" min="1" :max="product.stock" class="form-control w-100" />
+                            <div class=" form-text">Masukkan jumlah pesanan</div>
+                        </div>
+                        <div class="col ">
+                            <button @click="addToCart" class="btn px-5 py-2" style="background-color: #FF4433;/">
+                                <i class="bi bi-cart-plus-fill" style="color: white;"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

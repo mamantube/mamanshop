@@ -75,23 +75,39 @@ const deleteProduct = async() => {
         </div>
 
         <div v-else>
-            <h1 class="mb-4">{{ product.product_name }}</h1>
-            <div class="card">
-                <img
+            <div class="row vh-100">
+                <div class="col">
+                    <img
                     :src="product.image"
-                    class="card-img-top"
                     alt="Product Image"
+                    style="width: 20rem; max-width: 762px;"
                 />
-                <div class="card-body">
-                    <h5 class="card-title">{{ product.product_name }}</h5>
-                    <p class="card-text">
-                        Harga: {{ formatIDR(product.price) }}
+                </div>
+                <div class="col">
+                    <h6>
+                        Nama Produk:
+                    </h6>
+                    <p>
+                        {{ product.product_name }}
                     </p>
-                    <p class="card-text">Stok: {{ product.stock }}</p>
-                    <p class="card-text">
-                        Deskripsi: {{ product.description }}
+                    <h6>
+                        Harga:
+                    </h6>
+                    <p>
+                        {{ formatIDR(product.price) }}
                     </p>
-                    <div class=" d-flex gap-2">
+                    <h6>
+                        Stok:</h6>
+                    <p>
+                        {{ product.stock }} Pcs
+                    </p>
+                    <h6>
+                        Deskripsi:
+                    </h6>
+                    <p>
+                        {{ product.description }}
+                    </p>
+                    <div class=" d-flex gap-2 mt-5">
                         <router-link :to="`/admin/update-product/${id}`">
                             <button class="btn btn-secondary">
                                 Update produk
