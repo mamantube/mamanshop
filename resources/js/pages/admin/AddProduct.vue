@@ -113,9 +113,9 @@ const addProduct = handleSubmit(async (formData) => {
 
 <template>
     <div class="container py-5">
-        <div class="row justify-content-center text-xl-center">
-            <div class="col md-8">
-                <div class="card shadow-sm">
+        <div class="row ">
+            <div class="col md-8 d-flex justify-content-center text-xl-center">
+                <div class="card shadow-sm w-75">
                     <div class="card-header bg-primary text-white">
                         <h1>Tambah Produk</h1>
                     </div>
