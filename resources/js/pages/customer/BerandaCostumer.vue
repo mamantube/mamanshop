@@ -115,29 +115,25 @@ onMounted(products);
             </div>
         </div>
         <div class="row">
-            <div class="col my-5">
-                <div class="d-flex justify-content-center gap-3">
-                    <div
-                        v-for="product in productList"
-                        :key="product.id"
-                        class="card"
-                        style="width: 10rem"
-                    >
-                        <img :src="product.image" alt="..." />
-                        <div class="card-body text-center">
-                            <h5 class="card-title">
-                                {{ product.product_name }}
-                            </h5>
-                            <p class="card-text">
-                                {{ formatIDR(product.price) }}
-                            </p>
-                            <router-link
-                                :to="`/customer/products/${product.id}`"
-                            >
-                                <button class="btn btn-outline-primary">
+            <div class="d-flex flex-wrap justify-content-center gap-4 my-5">
+                <div v-for="product in productList" :key="product.id">
+                    <div class="col my-5 col-md-2 col-sm-4 product">
+                        <div class="card" style="width: 13rem">
+                            <img :src="product.image" alt="..." />
+                            <div class="card-body text-center">
+                                <h5 class="card-title">
+                                    {{ product.product_name }}
+                                </h5>
+                                <p class="card-text">
+                                    {{ formatIDR(product.price) }}
+                                </p>
+                                <router-link
+                                    class="btn btn-outline-primary"
+                                    :to="`/customer/products/${product.id}`"
+                                >
                                     Detail Produk
-                                </button>
-                            </router-link>
+                                </router-link>
+                            </div>
                         </div>
                     </div>
                 </div>
