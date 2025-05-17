@@ -39,52 +39,64 @@ onMounted(allCart);
 </script>
 
 <template>
-    <h1 class="text-center my-5">Data Transaksi</h1>
-    <div class="row">
-        <div class="col ms-3">
-            <h6>Belum melakukan pembayaran</h6>
-        </div>
+    <div class="container">
+        <h1 class="text-center my-5">Data Transaksi</h1>
         <div class="row">
             <div class="col">
-                <div v-if="isLoading">Memuat data.....</div>
-                <div v-if="pendingPayment.length === 0 && !isLoading">
-                    Tidak ada transaksi yang belum dibayar
-                </div>
-                <div v-for="item in pendingPayment" :key="item.id">
-                    <div class="card mt-4">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col col-md-2">
-                                    <img
-                                        :src="item.product.image"
-                                        alt=""
-                                        width="75rem"
-                                    />
-                                </div>
-                                <div class="col align-self-center">
-                                    <span class="fw-semibold">
-                                        {{ item.product.product_name }}
-                                    </span>
-                                    <br />
-                                    <span class="fw-semibold">
-                                        {{ item.quantity }} Pcs
-                                    </span>
-                                </div>
-                                <div class="col align-self-center">
-                                    Total harga: <br />
-                                    <span class="fw-semibold">
-                                        {{ formatIDR(item.total_price) }}
-                                    </span>
-                                </div>
-                                <div class="col align-self-center">
-                                    <span class="badge bg-danger">
-                                        Belum bayar
-                                    </span>
-                                </div>
-                                <div class="col align-self-center">
-                                    {{ item.user.user_name }} <br>
-                                    {{ item.user.email }}
-                                    {{ item.user.phone }}
+                <h6>Belum melakukan pembayaran</h6>
+            </div>
+        </div>
+        <div v-if="isLoading" class="text-center">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading....</span>
+            </div>
+            <p class="mt-2">Memuat data....</p>
+        </div>
+        <div
+            v-else-if="pendingPayment.length === 0 && !isLoading"
+            class="text-center my-5"
+        >
+            <span class="alert alert-danger w-25"> Tidak ada produk </span>
+        </div>
+        <div v-else class=" container">
+            <div v-for="item in pendingPayment" :key="item.id">
+                <div class="row">
+                    <div class="col">
+                        <div class="card mt-4 cart">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col col-md-2">
+                                        <img
+                                            :src="item.product.image"
+                                            alt=""
+                                            width="75rem"
+                                        />
+                                    </div>
+                                    <div class="col align-self-center">
+                                        <span class="fw-semibold">
+                                            {{ item.product.product_name }}
+                                        </span>
+                                        <br />
+                                        <span class="fw-semibold">
+                                            {{ item.quantity }} Pcs
+                                        </span>
+                                    </div>
+                                    <div class="col align-self-center">
+                                        Total harga: <br />
+                                        <span class="fw-semibold">
+                                            {{ formatIDR(item.total_price) }}
+                                        </span>
+                                    </div>
+                                    <div class="col align-self-center">
+                                        <span class="badge bg-danger">
+                                            Belum bayar
+                                        </span>
+                                    </div>
+                                    <div class="col align-self-center">
+                                        {{ item.user.user_name }} <br />
+                                        {{ item.user.email }}
+                                        {{ item.user.phone }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -93,51 +105,60 @@ onMounted(allCart);
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col ms-3">
+            <div class="col">
                 <h6>Sudah melakukan pembayaran</h6>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <div v-if="isLoading">Memuat data</div>
-                <div v-if="successPayment.length === 0 && !isLoading">
-                    Belum ada transaksi yang sudah dibayar
-                </div>
-                <div v-for="item in successPayment" :key="item.id">
-                    <div class="card mt-4">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    <img
-                                        :src="item.product.image"
-                                        alt=""
-                                        width="75rem"
-                                    />
-                                </div>
-                                <div class="col align-self-center">
-                                    <span class="fw-semibold">
-                                        {{ item.product.product_name }}
-                                    </span>
-                                    <br />
-                                    <span class="fw-semibold">
-                                        {{ item.quantity }} Pcs
-                                    </span>
-                                </div>
-                                <div class="col align-self-center">
-                                    Total harga: <br />
-                                    <span class="fw-semibold">
-                                        {{ formatIDR(item.total_price) }}
-                                    </span>
-                                </div>
-                                <div class="col align-self-center">
-                                    <span class=" badge bg-success">
-                                       Sudah bayar
-                                    </span>
-                                </div>
-                                <div class="col align-self-center">
-                                    {{ item.user.user_name }}
-                                    {{ item.user.email }}
-                                    {{ item.user.phone }}
+        <div v-if="isLoading">
+             <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading....</span>
+            </div>
+            <p class="mt-2">Memuat data....</p>
+        </div>
+        <div v-else-if="successPayment.length === 0 && !isLoading" class=" text-center my-5">
+            <span class="alert alert-danger w-25">
+                Belum ada produk yang sudah dibayar
+            </span>
+        </div>
+        <div v-else class=" container">
+            <div v-for="item in successPayment" :key="item.id">
+                <div class="row">
+                    <div class="col">
+                        <div class="card mt-4 cart">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <img
+                                            :src="item.product.image"
+                                            alt=""
+                                            width="75rem"
+                                        />
+                                    </div>
+                                    <div class="col align-self-center">
+                                        <span class="fw-semibold">
+                                            {{ item.product.product_name }}
+                                        </span>
+                                        <br />
+                                        <span class="fw-semibold">
+                                            {{ item.quantity }} Pcs
+                                        </span>
+                                    </div>
+                                    <div class="col align-self-center">
+                                        Total harga: <br />
+                                        <span class="fw-semibold">
+                                            {{ formatIDR(item.total_price) }}
+                                        </span>
+                                    </div>
+                                    <div class="col align-self-center">
+                                        <span class="badge bg-success">
+                                            Sudah bayar
+                                        </span>
+                                    </div>
+                                    <div class="col align-self-center">
+                                        {{ item.user.user_name }}
+                                        {{ item.user.email }}
+                                        {{ item.user.phone }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
