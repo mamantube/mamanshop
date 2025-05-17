@@ -74,7 +74,7 @@ onMounted(products);
 </script>
 
 <template>
-    <div>
+    <div class=" container-fluid">
         <div class="row mt-5">
             <div class="col d-flex justify-content-center">
                 <div class="input-group w-50">
