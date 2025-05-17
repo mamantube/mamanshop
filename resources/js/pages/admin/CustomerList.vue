@@ -50,28 +50,30 @@ const deleteCust = async (id) => {
 </script>
 
 <template>
-    <div class="row vh-100">
-        <div class="col">
-            <table class="table table-striped">
-                <thead>
-                    <th>Nama</th>
-                    <th>Email</th>
-                    <th>Nomor Telpon</th>
-                    <th>Aksi</th>
-                </thead>
-                <tbody>
-                    <tr v-for="customer in listCust" :key="customer.id">
-                        <td>{{ customer.name }}</td>
-                        <td>{{ customer.email }}</td>
-                        <td>{{ customer.phone }}</td>
-                        <td>
-                            <button @click="deleteCust(customer.id)" class=" btn btn-outline-danger" :disabled="customer.role === 'admin'">
-                                Hapus akun
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class=" container-fluid">
+        <div class="row vh-100">
+            <div class="col">
+                <table class="table table-striped text-center">
+                    <thead>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Nomor Telpon</th>
+                        <th>Aksi</th>
+                    </thead>
+                    <tbody>
+                        <tr v-for="customer in listCust" :key="customer.id">
+                            <td>{{ customer.name }}</td>
+                            <td>{{ customer.email }}</td>
+                            <td>{{ customer.phone }}</td>
+                            <td>
+                                <button @click="deleteCust(customer.id)" class=" btn btn-outline-danger" :disabled="customer.role === 'admin'">
+                                    Hapus akun
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </template>
