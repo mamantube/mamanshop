@@ -19,6 +19,7 @@ import DetailProductCustomer from "./pages/customer/DetailProductCustomer.vue";
 import CustomerList from "./pages/admin/CustomerList.vue";
 import ForbiddenAccess from "./pages/ForbiddenAccess.vue";
 import CartList from "./pages/customer/CartList.vue";
+import ContactUs from "./pages/customer/ContactUs.vue";
 
 
 const routes = [
@@ -54,6 +55,7 @@ const routes = [
                 { path: "products", component: ProductsCustomer},
                 { path: "products/:id", component: DetailProductCustomer},
                 { path: "cart-list", component: CartList},
+                { path: "contact-us", component: ContactUs}
             ]
     },
     {
