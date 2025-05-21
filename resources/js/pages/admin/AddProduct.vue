@@ -47,8 +47,9 @@ const { value: category } = useField("category");
 const { value: image } = useField("image");
 
 const previewImage = computed(() => {
-    if (image && image instanceof File) {
-        return URL.createObjectURL(values.image);
+    const imgValue = image.value; // Mengakses nilai ref image
+    if (imgValue && imgValue instanceof File) {
+        return URL.createObjectURL(imgValue);
     }
     return null;
 });
@@ -59,6 +60,7 @@ const message = ref("");
 const handleFileChange = (event) => {
     const file = event.target.files[0];
     setFieldValue("image", file);
+    image.value = file; // Tambahkan ini
 };
 
 const addProduct = handleSubmit(async (formData) => {
