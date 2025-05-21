@@ -114,7 +114,7 @@ const deleteProduct = async() => {
                             </button>
                         </router-link>
                         <button @click="deleteProduct" class="btn btn-danger">
-                            Hapus produck
+                            Hapus produk
                         </button>
 
                     </div>
