@@ -26,7 +26,7 @@ class ProductController extends Controller
 
             $publicPatch = public_path("assets/img/products/");
             if(!file_exists($publicPatch)) {
-                mkdir($publicPatch, 077, true);
+                mkdir($publicPatch, 0777, true);
             }
 
             if($request->hasFile("image")) {
