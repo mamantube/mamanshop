@@ -17,7 +17,10 @@ const products = debounce(async () => {
     }
 }, 500);
 
-onMounted(products);
+onMounted(() => {
+    localStorage.clear()
+    products()
+});
 </script>
 
 <template>
