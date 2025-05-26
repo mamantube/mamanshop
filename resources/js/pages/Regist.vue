@@ -65,7 +65,7 @@ const handleRegist = handleSubmit( async (formData) => {
     <div class="">
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <div class="card card_auth">
+                <div class="card auth_card">
                     <!-- <h4 class=" d-flex justify-content-center mt-4">Regist</h4> -->
                     <form @submit.prevent="handleRegist" class="p-4">
                         <div class="mb-3">
