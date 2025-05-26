@@ -52,10 +52,10 @@ const handleLogin = handleSubmit ( async (values) => {
 </script>
 
 <template>
-    <div class=" container-fluid">
+    <div class="">
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <div class=" border border-1 border-black w-50">
+                <div class=" card auth_card">
                     <form @submit.prevent="handleLogin" class=" p-4">
                         <div class="mb-3">
                             <label for="email" class="form-label"

@@ -10,7 +10,7 @@ const searchQuery = ref("");
 const meta = ref({
     current_page: 1,
     last_page: 1,
-    per_page: 10,
+    per_page: 8,
     total: 0,
 });
 
@@ -74,7 +74,7 @@ onMounted(products);
 </script>
 
 <template>
-    <div>
+    <div class=" container">
         <div class="row">
             <div class="col my-5 d-flex justify-content-center">
                 <div class="input-group w-50">

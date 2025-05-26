@@ -5,10 +5,17 @@ import { formatIDR } from "../utils/formatIDR";
 import { debounce } from "lodash";
 
 let productList = ref([]);
+const meta = ref({
+    per_page: 8,
+})
 
 const products = debounce(async () => {
     try {
-        await api.get("products").then((response) => {
+        await api.get("products", {
+            params: {
+                per_page: meta.value.per_page
+            }
+        }).then((response) => {
             productList.value = response.data.data;
             console.log(productList.value);
         });
@@ -92,7 +99,7 @@ onMounted(() => {
             </div>
         </div>
         <div class="row">
-            <div class="col py-3 px-3 text-center" sm="12" lg="4">
+            <div class="col-12 col-lg-4 py-3 px-3 text-center" sm="12" lg="4">
                 <p class="fw-medium">Fashion Trendy Harga Bersahabat</p>
                 <p>
                     Di toko kami, kamu bisa tampil stylish setiap hari dengan
@@ -100,7 +107,7 @@ onMounted(() => {
                     tetap modis tanpa harus boros!
                 </p>
             </div>
-            <div class="col py-3 px-3 text-center" sm="12" lg="4">
+            <div class="col-12 col-lg-4 col-sm-12 py-3 px-3 text-center" sm="12" lg="4">
                 <p class="fw-medium">Belanja Aman Style Maksimal</p>
                 <p>
                     produk yang kamu lihat adalah produk yang akan kamu terima —
@@ -108,7 +115,7 @@ onMounted(() => {
                     maksimal, tanpa drama!
                 </p>
             </div>
-            <div class="col py-3 px-3 text-center">
+            <div class="col-12 col-lg-4 py-3 px-3 text-center">
                 <p class="fw-medium">Tampil Stylish Setiap Hari</p>
                 <p>
                     Kami hadir dengan pilihan fashion lengkap mulai dari casual,

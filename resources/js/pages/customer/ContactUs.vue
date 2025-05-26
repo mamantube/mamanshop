@@ -11,7 +11,7 @@ const sendMessage = () => {
     <div class=" justify-content-center align-items-center vh-100 mt-5">
         <div class="row">
             <div class="col d-flex justify-content-center align-items-center">
-                <div class=" card w-50">
+                <div class=" card contact_card mx-3">
                     <div class=" card-title d-flex justify-content-center align-items-center pt-5">
                         <h3>Hubungi Kami</h3>
                     </div>

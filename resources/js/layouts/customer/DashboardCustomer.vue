@@ -97,6 +97,6 @@ const profile = () => {
             </div>
         </div>
     </nav>
-    <router-view></router-view>
+    <router-view class=" container"></router-view>
     <Footer></Footer>
 </template>

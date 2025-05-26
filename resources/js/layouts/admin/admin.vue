@@ -25,7 +25,7 @@ const onLogout = () => {
 
 <template>
     <nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
-        <div class="container-fluid">
+        <div class=" container-fluid">
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <img
                     width="60rem"
@@ -78,6 +78,6 @@ const onLogout = () => {
             </div>
         </div>
     </nav>
-    <RouterView />
+    <router-view class=" container"></router-view>
     <Footer />
 </template>

@@ -62,10 +62,10 @@ const handleRegist = handleSubmit( async (formData) => {
 </script>
 
 <template>
-    <div class="container-fluid mt-3">
+    <div class="">
         <div class="row">
             <div class="col d-flex justify-content-center">
-                <div class="border border-1 border-black w-50 rounded">
+                <div class="card card_auth">
                     <!-- <h4 class=" d-flex justify-content-center mt-4">Regist</h4> -->
                     <form @submit.prevent="handleRegist" class="p-4">
                         <div class="mb-3">

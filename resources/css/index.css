@@ -41,3 +41,35 @@
   overflow: hidden !important;
   border: 2.2px solid rgba(197, 115, 230, 0.883) !important;
 }
+
+.auth_card {
+    max-width: 40rem;
+    width: 100vh;
+    border: 1.5px solid #ACB5BD;
+    min-width: 20rem;
+}
+
+.contact_card {
+    min-width: 20rem;
+    width: 100vh;
+    border: 1.5px solid #ACB5BD;
+    max-width: 40rem;
+}
+
+.add_product_card {
+    max-width: 40rem;
+    border: 1.5px solid #ACB5BD;
+    min-width: 20rem;
+}
+
+
+.update_product_card {
+    max-width: 40rem;
+    border: 1.5px solid #ACB5BD;
+    min-width: 25rem;
+}
+
+.detail-product {
+    min-width: 25rem;
+    max-width: 100%;
+}

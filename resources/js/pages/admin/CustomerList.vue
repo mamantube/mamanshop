@@ -50,7 +50,7 @@ const deleteCust = async (id) => {
 </script>
 
 <template>
-    <div class=" container-fluid">
+    <div class="">
         <div class="row vh-100">
             <div class="col">
                 <table class="table table-striped text-center">

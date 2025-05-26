@@ -104,14 +104,14 @@ const removeCart = async (cartItemId) => {
                         <div class="card mt-4 cart">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col col-md-2">
+                                    <div class="col-4 col-lg-3 align-self-center">
                                         <img
                                             :src="item.product.image"
                                             alt=""
                                             width="75rem"
                                         />
                                     </div>
-                                    <div class="col align-self-center">
+                                    <div class="col-4 col-lg-3 align-self-center">
                                         <span class="fw-semibold">
                                             {{ item.product.product_name }}
                                         </span>
@@ -120,13 +120,13 @@ const removeCart = async (cartItemId) => {
                                             {{ item.quantity }} Pcs
                                         </span>
                                     </div>
-                                    <div class="col align-self-center">
+                                    <div class="col-4 col-lg-3 align-self-center">
                                         Total harga: <br />
                                         <span class="fw-semibold">
                                             {{ formatIDR(item.total_price) }}
                                         </span>
                                     </div>
-                                    <div class="col align-self-center">
+                                    <div class="col-12 col-lg-3 mt-3 mt-lg-0 align-self-center">
                                         <button
                                             @click="payment(item.id)"
                                             class="btn btn-outline-secondary"
@@ -164,14 +164,14 @@ const removeCart = async (cartItemId) => {
                 <div class="card mt-4 cart">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col col-md-2">
+                            <div class="col-4 col-lg-3 align-self-center">
                                 <img
                                     :src="item.product.image"
                                     alt=""
                                     width="75rem"
                                 />
                             </div>
-                            <div class="col align-self-center">
+                            <div class="col-4 col-lg-3 align-self-center">
                                 <span class="fw-semibold">
                                     {{ item.product.product_name }}
                                 </span>
@@ -180,13 +180,13 @@ const removeCart = async (cartItemId) => {
                                     {{ item.quantity }} Pcs
                                 </span>
                             </div>
-                            <div class="col align-self-center">
+                            <div class="col-4 col-lg-3 align-self-center">
                                 Total harga: <br />
                                 <span class="fw-semibold">
                                     {{ formatIDR(item.total_price) }}
                                 </span>
                             </div>
-                            <div class="col align-self-center">
+                            <div class="col-12 col-lg-3 mt-3 mt-lg-0 align-self-center">
                                 <span class="badge bg-success"
                                     >Pembayaran berhasil</span
                                 >

@@ -63,8 +63,8 @@ const deleteProduct = async() => {
 </script>
 
 <template>
-    <div class="container mt-5">
-        <div v-if="loading" class="text-center">
+    <div class="container my-5 vh-100">
+        <div v-if="loading" class="text-center ">
             <div class="spinner-border text-primary" role="status">
                 <span class="visually-hidden">Memuat product....</span>
             </div>
@@ -75,15 +75,15 @@ const deleteProduct = async() => {
         </div>
 
         <div v-else>
-            <div class="row vh-100">
-                <div class="col">
+            <div class="row detail-product">
+                <div class="col-12 col-lg-6 bg">
                     <img
                     :src="product.image"
                     alt="Product Image"
                     style="width: 20rem; max-width: 762px;"
                 />
                 </div>
-                <div class="col">
+                <div class="col-12 col-lg-6 mt-3 mt-md-3 mt-xl-0 ps-lg-5">
                     <h6>
                         Nama Produk:
                     </h6>
@@ -116,7 +116,6 @@ const deleteProduct = async() => {
                         <button @click="deleteProduct" class="btn btn-danger">
                             Hapus produk
                         </button>
-
                     </div>
                 </div>
             </div>

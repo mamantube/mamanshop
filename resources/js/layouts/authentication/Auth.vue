@@ -5,7 +5,7 @@ import { RouterView } from "vue-router";
 </script>
 
 <template>
-    <div class="container-fluid mt-4">
+    <div class=" my-3">
         <div class="row">
             <div
                 class="col d-flex justify-content-center align-items-center flex-column"
@@ -15,9 +15,9 @@ import { RouterView } from "vue-router";
                     src="../../../../public/assets/img/mamanshop.png"
                     alt=""
                 />
-                <h2>MamanShop</h2>
+                <h2 class=" mb-3">MamanShop</h2>
             </div>
         </div>
-        <RouterView />
+        <RouterView class=" container" />
     </div>
 </template>

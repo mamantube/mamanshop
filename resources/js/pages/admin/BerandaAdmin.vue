@@ -39,7 +39,7 @@ onMounted(allCart);
 </script>
 
 <template>
-    <div class="container">
+    <div class="container vh-100">
         <h1 class="text-center my-5">Data Transaksi</h1>
         <div class="row">
             <div class="col">
@@ -65,14 +65,14 @@ onMounted(allCart);
                         <div class="card mt-4 cart">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col col-md-2">
+                                    <div class="col-4 col-lg-2 align-self-center">
                                         <img
                                             :src="item.product.image"
                                             alt=""
                                             width="75rem"
                                         />
                                     </div>
-                                    <div class="col align-self-center">
+                                    <div class="col-4 col-lg-3 align-self-center">
                                         <span class="fw-semibold">
                                             {{ item.product.product_name }}
                                         </span>
@@ -81,21 +81,21 @@ onMounted(allCart);
                                             {{ item.quantity }} Pcs
                                         </span>
                                     </div>
-                                    <div class="col align-self-center">
+                                    <div class="col-4 col-lg-3 align-self-center">
                                         Total harga: <br />
                                         <span class="fw-semibold">
                                             {{ formatIDR(item.total_price) }}
                                         </span>
                                     </div>
-                                    <div class="col align-self-center">
+                                    <div class="col-6 col-md-6 col-lg-2 mt-0 mt-3 mt-lg-0 align-self-center">
+                                        {{ item.user.user_name }} <br />
+                                        {{ item.user.email }} <br>
+                                        {{ item.user.phone }} <br>
+                                    </div>
+                                    <div class="col-6 col-lg-2 col-md-6 align-self-center text-center">
                                         <span class="badge bg-danger">
                                             Belum bayar
                                         </span>
-                                    </div>
-                                    <div class="col align-self-center">
-                                        {{ item.user.user_name }} <br />
-                                        {{ item.user.email }}
-                                        {{ item.user.phone }}
                                     </div>
                                 </div>
                             </div>
@@ -127,14 +127,14 @@ onMounted(allCart);
                         <div class="card mt-4 cart">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-4 col-lg-2 align-self-center">
                                         <img
                                             :src="item.product.image"
                                             alt=""
                                             width="75rem"
                                         />
                                     </div>
-                                    <div class="col align-self-center">
+                                    <div class="col-4 col-lg-3 align-self-center">
                                         <span class="fw-semibold">
                                             {{ item.product.product_name }}
                                         </span>
@@ -143,21 +143,21 @@ onMounted(allCart);
                                             {{ item.quantity }} Pcs
                                         </span>
                                     </div>
-                                    <div class="col align-self-center">
+                                    <div class="col-4 col-lg-3 align-self-center">
                                         Total harga: <br />
                                         <span class="fw-semibold">
                                             {{ formatIDR(item.total_price) }}
                                         </span>
                                     </div>
-                                    <div class="col align-self-center">
+                                    <div class="col-6 col-md-6 col-lg-2 mt-0 mt-3 mt-lg-0 align-self-center">
+                                        {{ item.user.user_name }} <br>
+                                        {{ item.user.email }} <br>
+                                        {{ item.user.phone }}
+                                    </div>
+                                    <div class="col-6 col-lg-2 col-md-6 align-self-center text-center">
                                         <span class="badge bg-success">
                                             Sudah bayar
                                         </span>
-                                    </div>
-                                    <div class="col align-self-center">
-                                        {{ item.user.user_name }}
-                                        {{ item.user.email }}
-                                        {{ item.user.phone }}
                                     </div>
                                 </div>
                             </div>

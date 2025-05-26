@@ -29,14 +29,15 @@ const schema = yup.object({
 });
 
 const { handleSubmit, errors, values, setFieldValue, setValues } = useForm({
-    validationSchema: schema, initialValues: {
+    validationSchema: schema,
+    initialValues: {
         product_name: "",
         stock: "",
         price: "",
         description: "",
         category: "",
         image: null,
-    }
+    },
 });
 
 const { value: productName } = useField("product_name");
@@ -70,18 +71,17 @@ const getProduct = async () => {
         product.value = response.data.data;
         id.value = response.data.data.id;
 
-        await nextTick()
+        await nextTick();
 
-            setValues({
-                product_name: product.value.product_name,
-                stock: product.value.stock,
-                price: product.value.price,
-                description: product.value.description,
-                category: product.value.category,
-                image: product.value.image,
-            });
-            console.log(product);
-        
+        setValues({
+            product_name: product.value.product_name,
+            stock: product.value.stock,
+            price: product.value.price,
+            description: product.value.description,
+            category: product.value.category,
+            image: product.value.image,
+        });
+        console.log(product);
     } catch (error) {
         Swal.fire("Gagal memuat data", "", "error");
         router.push("/admin/products");
@@ -125,7 +125,7 @@ const updateData = handleSubmit(async (formValues) => {
             router.push(`/admin/products/${id.value}`);
         } else if (result.isDenied) {
             Swal.fire("Batal memperbaharui data", "", "info", 300);
-            router.push("admin/products")
+            router.push("admin/products");
         }
     } catch (error) {
         Swal.fire("error", `${error}`, "error", 3000);
@@ -137,7 +137,7 @@ const updateData = handleSubmit(async (formValues) => {
     <div class="container py-5">
         <div class="row">
             <div class="col md-8 d-flex justify-content-center text-xl-center">
-                <div class="card shadow-sm w-75">
+                <div class="card shadow-sm update_product_card">
                     <div
                         class="card-header bg-secondary text-white text-center"
                     >
@@ -176,32 +176,41 @@ const updateData = handleSubmit(async (formValues) => {
                                     </div>
                                 </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label">Stock</label>
-                                    <input
-                                        v-model="stock"
-                                        type="number"
-                                        class="form-control"
-                                        :class="{ 'is-invalid': errors.stock }"
-                                    />
-                                    <ErrorMessage
-                                        name="stock"
-                                        class="invalid-feedback"
-                                    />
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label">Harga</label>
-                                    <input
-                                        v-model="price"
-                                        type="number"
-                                        class="form-control"
-                                        :class="{ 'is-invalid': errors.price }"
-                                    />
-                                    <ErrorMessage
-                                        name="price"
-                                        class="invalid-feedback"
-                                    />
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Stock</label>
+                                        <input
+                                            v-model="stock"
+                                            type="number"
+                                            class="form-control"
+                                            :class="{
+                                                'is-invalid': errors.stock,
+                                            }"
+                                        />
+                                        <ErrorMessage
+                                            name="stock"
+                                            class="invalid-feedback"
+                                        />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label"
+                                                >Harga</label
+                                            >
+                                            <input
+                                                v-model="price"
+                                                type="number"
+                                                class="form-control"
+                                                :class="{
+                                                    'is-invalid': errors.price,
+                                                }"
+                                            />
+                                            <ErrorMessage
+                                                name="price"
+                                                class="invalid-feedback"
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
@@ -221,12 +230,22 @@ const updateData = handleSubmit(async (formValues) => {
 
                                 <div class="mb-3">
                                     <label class="form-label">Kategori</label>
-                                    <select v-model="category" class=" form-select" name="category" id="category" :class="{'is-invalid' : errors.category }">
-                                        <option value="" disabled selected>Pilih kategori</option>
+                                    <select
+                                        v-model="category"
+                                        class="form-select"
+                                        name="category"
+                                        id="category"
+                                        :class="{
+                                            'is-invalid': errors.category,
+                                        }"
+                                    >
+                                        <option value="" disabled selected>
+                                            Pilih kategori
+                                        </option>
                                         <option value="men">Pria</option>
                                         <option value="women">Wanita</option>
                                     </select>
-                
+
                                     <ErrorMessage
                                         name="category"
                                         class="invalid-feedback"
@@ -249,7 +268,9 @@ const updateData = handleSubmit(async (formValues) => {
                                         width="150"
                                     />
                                 </div>
-                                <button class=" btn btn-outline-primary"> Simpan perubahan</button>
+                                <button class="btn btn-outline-primary">
+                                    Simpan perubahan
+                                </button>
                             </form>
                         </div>
                     </div>

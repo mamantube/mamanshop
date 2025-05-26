@@ -56,7 +56,7 @@ const addToCart = async () => {
 
 <template>
     <div class="container mt-5">
-        <div v-if="loading" class="text-center">
+        <div v-if="loading" class="text-center vh-100">
             <div class="spinner-border text-primary" role="status">
                 <span class="visually-hidden">Memuat product....</span>
             </div>
@@ -67,15 +67,15 @@ const addToCart = async () => {
         </div>
 
         <div v-else>
-            <div class="row vh-100">
-                <div class="col">
+            <div class="row vh-100 detail-product">
+                <div class="col-12 col-lg-6 bg">
                     <img
                         :src="product.image"
                         alt="Product Image"
                         style="width: 20rem; max-width: 762px;"
                     />
                 </div>
-                <div class="col">
+                <div class="col-12 col-lg-6 mt-3 mt-md-3 mt-xl-0 ps-lg-5">
                     <h6>
                         Nama Produk:
                     </h6>
