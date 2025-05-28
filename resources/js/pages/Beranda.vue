@@ -6,7 +6,7 @@ import { debounce } from "lodash";
 
 let productList = ref([]);
 const meta = ref({
-    per_page: 8,
+    per_page: 6,
 })
 
 const products = debounce(async () => {

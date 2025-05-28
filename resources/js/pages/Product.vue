@@ -10,7 +10,7 @@ const searchQuery = ref("");
 const meta = ref({
     current_page: 1,
     last_page: 1,
-    per_page: 10,
+    per_page: 6,
     total: 0,
 });
 

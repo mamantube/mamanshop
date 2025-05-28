@@ -59,7 +59,7 @@ const handleLogin = handleSubmit ( async (values) => {
                     <form @submit.prevent="handleLogin" class=" p-4">
                         <div class="mb-3">
                             <label for="email" class="form-label"
-                                >Email address</label
+                                >Email</label
                             >
                             <input
                                 v-model="email"
@@ -74,9 +74,6 @@ const handleLogin = handleSubmit ( async (values) => {
                             />
                             <div v-if="errors.email" class=" invalid-feedback">
                                 <ErrorMessage name="email" />
-                            </div>
-                            <div id="emailHelp" class="form-text">
-                                We'll never share your email with anyone else.
                             </div>
                         </div>
                         <div class="mb-3">

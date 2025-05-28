@@ -12,7 +12,7 @@ const schema = yup.object({
     user_name: yup.string().required("Nama tidak boleh kosong"),
     phone: yup.string().matches(/^(\+62|62)?[\s-]?0?8[1-9]{1}\d{1}[\s-]?\d{4}[\s-]?\d{2,5}$/, "Nomor telpon tidak valid").required("Nomor telpon wajib diisi"),
     email: yup.string().required("Email tidak boleh kosong").email("Alamat email tidak valid"),
-    password: yup.string().required("Password wajib diisi").matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/, "Minimal 6 karakter, satu huruf besar dan satu angka"),
+    password: yup.string().required("Password wajib diisi").matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/, "Format passwor tidak sesuai"),
 });
 
 const {handleSubmit, errors, setFieldValue} = useForm({
@@ -125,7 +125,7 @@ const handleRegist = handleSubmit( async (formData) => {
 
                         <div class="mb-3">
                             <label for="email" class="form-label">
-                                Email address
+                                Email
                             </label>
                             <input
                                 v-model="email"
@@ -140,9 +140,6 @@ const handleRegist = handleSubmit( async (formData) => {
                             />
                             <div v-if="errors.email" class=" invalid-feedback">
                                 <ErrorMessage name="email" />
-                            </div>
-                            <div id="emailHelp" class="form-text">
-                                We'll never share your email with anyone else.
                             </div>
                         </div>
                         <div class="mb-3">
@@ -163,6 +160,9 @@ const handleRegist = handleSubmit( async (formData) => {
                             />
                             <div v-if="errors.password">
                                 <ErrorMessage name="password" />
+                            </div>
+                             <div class="form-text">
+                                Minimal 6 karakter, satu huruf besar dan satu angka
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">
